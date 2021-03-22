@@ -1,0 +1,82 @@
+title Hotel System
+
+System->Guest:log_in()
+activate Guest
+
+Guest->Reservations:make_reservation()
+activate Reservations
+Reservations->Hotel:choose_hotel()
+activate Hotel
+Hotel-->Reservations: return()
+deactivate Hotel
+Reservations-->Guest: return()
+deactivate Reservations
+
+Guest->Reservations:list_my_reservations()
+activate Reservations
+Reservations-->Guest: return()
+deactivate Reservations
+
+Guest->Reservations:edit_my_reservation()
+activate Reservations
+Reservations-->Guest: return()
+deactivate Reservations
+
+Guest->Hotel:list_hotels()
+activate Hotel
+Hotel-->Guest: return()
+deactivate Hotel
+
+Guest->Hotel:hotel_info()
+activate Hotel
+Hotel-->Guest: return()
+deactivate Hotel
+
+Guest->System: log_out()
+deactivate Guest
+
+
+
+System->Worker:log_in()
+activate Worker
+
+Worker->Hotel:list_hotels()
+activate Hotel
+Hotel-->Worker: return()
+deactivate Hotel
+
+Worker->Reservations:list_all_reservations()
+activate Reservations
+Reservations-->Worker: return()
+deactivate Reservations
+
+Worker->Hotel:cost_statistics()
+activate Hotel
+Hotel-->Worker: return()
+deactivate Hotel
+
+Worker->Hotel:list_hotels_by_popularity()
+activate Hotel
+Hotel-->Worker: return()
+deactivate Hotel
+
+Worker->Hotel:list_room_types_by_popularity()
+activate Hotel
+Hotel-->Worker: return()
+deactivate Hotel
+
+Worker->Hotel:list_dining_options_by_popularity()
+activate Hotel
+Hotel-->Worker: return()
+deactivate Hotel
+
+Worker->Hotel:list_payment_methods_by_popularity()
+activate Hotel
+Hotel-->Worker: return()
+deactivate Hotel
+
+Worker->System: log_out()
+deactivate Worker
+
+
+
